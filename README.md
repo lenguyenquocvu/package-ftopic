@@ -1,7 +1,9 @@
 # package-ftopic
 # use with foostart/package-acl
 #Step 1: Now open the file config/app.php and add to the 'providers' option the following line:
+
    Foostart\Acl\Authentication\AuthenticationServiceProvider::class,
+   
    Fteam\Topic\TopicServiceProvider::class,
 
 
