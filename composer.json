@@ -17,16 +17,8 @@
     ],
     "minimum-stability": "dev",
 	"autoload": {
-		"classmap": [
-			"database"
-		],
 		"psr-0": {
 			"Fteam\\Topic\\": "fteam/topic/src/"
 		}
-	},
-	"autoload-dev": {
-		"classmap": [
-			"tests/unit"
-		]
 	}
 }
