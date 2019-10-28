@@ -3,10 +3,10 @@
     "description": "Demo package",
     "type": "library",
     "require": {
-        "foostart/package-acl": "5.0.0"
+        "foostart/package-acl": "*"
     },
     "require-dev": {
-        "foostart/package-acl": "5.0.0"
+        "foostart/package-acl": "*"
     },
     "license": "MIT",
     "authors": [
@@ -17,9 +17,16 @@
     ],
     "minimum-stability": "dev",
 	"autoload": {
-		"psr-0": {
-			"App": "app",
+		"classmap": [
+			"database"
+		],
+		"psr-4": {
 			"Fteam\\Topic\\": "fteam/topic/src/"
 		}
+	}
+	"autoload-dev": {
+		"classmap": [
+			"tests/unit"
+		]
 	}
 }
