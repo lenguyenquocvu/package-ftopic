@@ -20,7 +20,7 @@
 		"classmap": [
 			"database"
 		],
-		"psr-4": {
+		"psr-0": {
 			"Fteam\\Topic\\": "fteam/topic/src/"
 		}
 	}
