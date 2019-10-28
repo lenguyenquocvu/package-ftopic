@@ -1,0 +1,25 @@
+{
+    "name": "fteam/topic",
+    "description": "Demo package",
+    "type": "library",
+    "require": {
+        "foostart/package-acl": "dev-master"
+    },
+    "require-dev": {
+        "foostart/package-acl": "dev-master"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "lenguyenquocvu",
+            "email": "lenguyenquocvucd17tt10@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+	"autoload": {
+		"psr-0": {
+			"App": "app",
+			"Fteam\\Topic\\": "fteam/topic/src/"
+		}
+	}
+}
