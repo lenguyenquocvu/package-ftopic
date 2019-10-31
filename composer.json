@@ -6,8 +6,8 @@
         "foostart/package-acl": "*"
     },
     "require-dev": {
-        "fteam/topic": "*",
-        "foostart/package-acl": "*"
+        "foostart/package-acl": "*",
+        "fteam/topic": "*"
     },
     "license": "MIT",
     "authors": [
