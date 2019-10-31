@@ -3,7 +3,8 @@
     "description": "Demo package",
     "type": "library",
     "require": {
-        "foostart/package-acl": "*"
+        "foostart/package-acl": "*",
+        "fteam/topic": "*"
     },
     "require-dev": {
         "foostart/package-acl": "*",
