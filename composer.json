@@ -3,12 +3,13 @@
     "description": "Demo package",
     "type": "library",
     "require": {
-        "foostart/package-acl": "*",
-        "fteam/topic": "*"
+        "fteam/topic": "*",
+        "foostart/package-acl": "*"
+       
     },
     "require-dev": {
-        "foostart/package-acl": "*",
-        "fteam/topic": "*"
+        "fteam/topic": "*",
+        "foostart/package-acl": "*"
     },
     "license": "MIT",
     "authors": [
