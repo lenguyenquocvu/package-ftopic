@@ -10,7 +10,10 @@ Route::group(['middleware' => ['web']], function ()
 
 
     Route::get('users', [
-            'uses' => 'Fteam\Topic\Controllers\StudentController@loadPage'
+            'uses' => 'Fteam\Topic\Controllers\StudentOrTeacherController@loadPage'
+    ]);
+    Route::get('/login', [
+            'uses' => 'Fteam\Topic\Controllers\StudentOrTeacherController@loadPage'
     ]);
 });
 
