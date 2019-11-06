@@ -11,7 +11,7 @@ class TeacherLogged {
 
     public function handle($request, Closure $next, $custom_url = null)
     {
-        $redirect_url = $custom_url ?: '/login';
+        $redirect_url = $custom_url ?: '/admin';
         if(!App::make('authenticator')->check()) return redirect($redirect_url);
 
         return $next($request);

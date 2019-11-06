@@ -11,7 +11,7 @@ class Subject extends Model
 
     protected $filltable = ['sub_code', 'sub_name'];
 
-    protected $sub_code = 'sub_code';
+    // protected $sub_code = 'sub_code';
 
-    protected $sub_name = 'sub_name';
+    // protected $sub_name = 'sub_name';
 }

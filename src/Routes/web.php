@@ -1,4 +1,9 @@
 <?php
+ Route::group(array('middleware' => 'user_logged'), function() {
+        Route::get('/user', [
+                'uses' => 'Fteam\Topic\Controllers\StudentOrTeacherController@loadPage'
+        ]);    
+});
 
 Route::group(['middleware' => ['web']], function ()
 {
@@ -9,11 +14,14 @@ Route::group(['middleware' => ['web']], function ()
     Route::get('/student/submit-down', 'Fteam\Topic\Controllers\TopicController@getfile');
 
 
-    Route::get('users', [
+    Route::get('/user', [
             'uses' => 'Fteam\Topic\Controllers\StudentOrTeacherController@loadPage'
     ]);
-    Route::get('/login', [
-            'uses' => 'Fteam\Topic\Controllers\StudentOrTeacherController@loadPage'
-    ]);
+
+   
+    
+//     Route::get('/users', [
+//         'uses' => 'Fteam\Topic\Controllers\ShowProjectsController@showProjects'
+//     ])->name('MemAndShowProjects');
 });
 

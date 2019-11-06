@@ -20,10 +20,7 @@
     ],
     "minimum-stability": "dev",
 	"autoload": {
-        "classmap": [
-            "database"
-        ],
-		"psr-4": {
+        "psr-4": {
 			"Fteam\\Topic\\": "fteam/topic/src/"
 		}
 	}
