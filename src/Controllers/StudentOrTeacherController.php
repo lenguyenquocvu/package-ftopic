@@ -3,8 +3,12 @@
 namespace Fteam\Topic\Controllers;
 use App;
 use App\Http\Controllers\Controller;
+use Fteam\Topic\Models\ClassList;
+use Fteam\Topic\Models\Project;
 use Illuminate\Http\Request;
-use Fteam\Topic\Models\Member;
+use Fteam\Topic\Models\Student;
+use Fteam\Topic\Models\Teacher;
+use Illuminate\Support\Facades\DB;
 
 class StudentOrTeacherController extends Controller {
     public function loadPage(Request $request){
@@ -13,26 +17,56 @@ class StudentOrTeacherController extends Controller {
         if(!!isset($authentication->getLoggedUser()->permissions["_student"])){
             $student = $authentication->getLoggedUser()->email;
             // return view('topic::student.teststudent', array())->withStudent($student);
-            $mem = $this->findMember($student);
+            $mem = $this->findStudent($student);
+            $code = $mem[0]->stu_code;
+            $pro = $this->findProjectFollowStudent($code);
+
             // $mem = $this->findTeacherInfoAfterJoin($mem);
-            return view('topic::student.teststudent', array())->withMem($mem);
-        }  
-        if(!!isset($authentication->getLoggedUser()->permissions["_teacher"])){
+            return view('topic::student.teststudent', array())->withMem($mem)
+                                                              ->withPro($pro);
+        }  else if(!!isset($authentication->getLoggedUser()->permissions["_teacher"])){
             $teacher = $authentication->getLoggedUser()->email;
-            $mem = $this->findMember($teacher);
-            return view('topic::student.teststudent', array())->withMem($mem);
-        }  
+            $mem = $this->findTeacher($teacher);
+            $code = $mem[0]->tea_code;
+            $pro = $this->findProjectFollowTeacher($code);
+            $classlist = $this->findClassListFollowTeacher($code);
+            return view('topic::teacher.testteacher', array())->withMem($mem)
+                                                              ->withPro($pro)
+                                                              ->withClasslist($classlist);
+        }  else {
+            $error = "Please change url to ../admin or ../admin/login";
+            return view('topic::teacher.testteacher', array())->withError($error);
+        }
     }
 
-    public function findMember($email) {
+    public function findStudent($email) {
         echo '<pre>';
-        return Member::where('mem_email', $email)->get();
+        return Student::where('stu_email', $email)->get();
     }
 
-    public function findTeacherInfoAfterJoin($code) {
+    public function findTeacher($email) {
         echo '<pre>';
-        return Member::leftJoin('projects', $code, '=', 'projects.mem_code');
+        return Teacher::where('tea_email', $email)->get();
     }
+
+    public function findProjectFollowStudent($code) {
+        echo '<pre>';
+        return DB::table('students')->leftJoin('student_projects', 'students.stu_code', '=', 'student_projects.stu_code')
+                                    ->leftJoin('projects', 'student_projects.pro_code', '=', 'projects.pro_code')
+                                    ->join('class_lists', 'class_lists.cl_code' , '=', 'projects.cl_code')
+                                    ->where('students.stu_code', $code)->orderBy('projects.pro_name')->get();
+    }
+
+    public function findProjectFollowTeacher($code) {
+        echo '<pre>';
+        return Project::where('tea_code', $code)->get();
+    }
+
+    public function findClassListFollowTeacher($code) {
+        echo '<pre>';
+        return ClassList::where('tea_code', $code)->orderBy('sub_name')->get();
+    }
+
     
     // public function findStudentProjectAfterJoin() {
     //     echo '<pre>';

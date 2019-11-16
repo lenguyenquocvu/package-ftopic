@@ -9,7 +9,7 @@ class ClassList extends Model
     //
     protected $table = 'class_lists';
 
-    protected $filltable = ['cl_code', 'sub_name'];
+    protected $filltable = ['cl_code', 'sub_name', 'tea_code', 'sub_code'];
 
     // protected $cl_code = 'cl_code';
 

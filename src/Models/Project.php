@@ -9,7 +9,7 @@ class Project extends Model
     //
     protected $table = 'projects';
 
-    protected $filltable = ['pro_id', 'pro_link', 'sub_code', 'mem_code', 'lc_code', 'pro_description']; // mem_code = teacher code
+    protected $filltable = ['pro_code', 'pro_name', 'sub_code', 'tea_code', 'cl_code', 'pro_description']; // mem_code = teacher code
 
     // protected $pro_id = 'pro_id';
 

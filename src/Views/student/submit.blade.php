@@ -17,23 +17,36 @@
             margin-top: 2%;
         }
 
-        .class
     </style>
 </head>
 <body>
+    <a href=""></a>
     @section('content')
     <div class="form-submit">
-        {!! Form::open(['route' => ['submit-up'], 'class' => 'dropzone', 'id' => 'dropzonewidget']) !!}
+        {{-- {!! Form::open(['route' => ['submit-up'], 'class' => 'dropzone', 'id' => 'dropzonewidget']) !!}
 
-        {!! Form::close() !!}
+        {!! Form::close() !!} --}}
 
         {!! Form::open(['route' => ['submit-up'], 'class' => 'submit', 'id' => 'submit', 'files' => true]) !!}
+
+        {{ Form::label('class', 'Project Code: ') }}
+        {{ Form::text('subs', $value['procode']) }}
+        <br>
 
         {!! Form::file('file', ['class'=> 'btn-lg pull-left file']) !!}
 
         {!! Form::submit('Submit',['class'=> 'btn btn-lg btn-info pull-right btn-submit']) !!}
 
         {!! Form::close() !!}
+        <?php if($link != "") { ?>
+            
+            {!! Form::open(['route' => ['download'], 'class' => 'submit', 'id' => 'submit']) !!}
+            {{ Form::label('class', 'Link project: ') }}
+            {{ Form::text('download', $link) }}
+            <br>
+            {!! Form::submit('Download',['class'=> 'btn btn-lg btn-info pull-right btn-submit']) !!}
+            {!! Form::close() !!}
+        <?php } ?>
     </div>
     @stop
 </body>

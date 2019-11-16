@@ -9,5 +9,5 @@ class StudentProject extends Model
     //
     protected $table = 'student_projects';
 
-    protected $filltable = ['mem_code', 'sub_code'];
+    protected $filltable = ['stu_code', 'pro_code', 'sp_link'];
 }

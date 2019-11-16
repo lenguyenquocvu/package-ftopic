@@ -14,9 +14,9 @@ class CreateStudentSubjectsTable extends Migration
     public function up()
     {
         Schema::create('student_subjects', function (Blueprint $table) {
-            $table->string('mem_code'); // mem_code = student code
+            $table->string('stu_code'); 
             $table->string('sub_code');
-            $table->primary(array('mem_code', 'sub_code'));
+            $table->primary(array('stu_code', 'sub_code'));
             $table->timestamps();
         });
     }

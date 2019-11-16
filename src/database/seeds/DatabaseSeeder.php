@@ -1,7 +1,9 @@
 <?php
+// namespace Fteam\Topic\database\seeds;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class DatabaseSeeder extends Seeder {
     /**
@@ -18,6 +20,12 @@ class DatabaseSeeder extends Seeder {
         $this->call('ClassListsTableSeeder');
         $this->call('StudentsClassesTableSeeder');
         $this->call('StudentSubjectsTableSeeder');
+        $this->call('GroupsTableSeeder');
+        $this->call('PermissionTableSeeder');
+        $this->call('StudentsTableSeeder');
+        $this->call('TeachersTableSeeder');
+
+        Eloquent::reguard();
     }
 }
 

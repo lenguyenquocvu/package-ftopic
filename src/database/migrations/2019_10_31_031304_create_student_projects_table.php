@@ -14,9 +14,10 @@ class CreateStudentProjectsTable extends Migration
     public function up()
     {
         Schema::create('student_projects', function (Blueprint $table) {
-            $table->string('mem_code'); // mem_code = student code
+            $table->string('stu_code');
             $table->integer('pro_code');
-            $table->primary(array('mem_code', 'pro_code'));
+            $table->string('sp_link');
+            $table->primary(array('stu_code', 'pro_code'));
             $table->timestamps();
         });
     }

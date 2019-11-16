@@ -16,7 +16,9 @@ class CreateClassListsTable extends Migration
         Schema::create('class_lists', function (Blueprint $table) {
             $table->string('cl_code');
             $table->string('sub_name');
-            $table->primary('cl_code', 'sub_name');
+            $table->string('tea_code');
+            $table->string('sub_code');
+            $table->primary('cl_code');
             $table->timestamps();
         });
     }
